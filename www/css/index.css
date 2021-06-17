@@ -108,3 +108,20 @@ h1 {
         background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
     }
 }
+
+#employee_table{
+    margin: 20px;
+    margin-left: 40px;
+}
+
+#level{
+    color: dodgerblue;
+}
+
+.acessory{
+    width: 300px;
+}
+
+.bookshelf{
+    width: 450px;
+}

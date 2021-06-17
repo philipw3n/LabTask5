@@ -1,34 +1,7 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -38,29 +11,197 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        </script>
     </head>
     <body>
-        <div data-role="page" id="page-home">
+        <div data-role="page" id="home">
             <div data-role="header" id="header">
-                <h1>Home Page</h1>
+                <h1><b>HOME PAGE</b></h1>
             </div>
             <div data-role="content">
-                <ul data-role="listview" data-inset="true">
-                    <li><a href="#page-employee" data-role="button" data-transition="slide" data-icon="arrow-r" data-iconpos="right">
-                        <div>
-                            <p>
-                            <b>Employee List</b>
-                            </p>
-                        </div>
-                    </a></li>
-                    <li><a href="#page-product" data-role="button" data-transition="slide" data-icon="arrow-r" data-iconpos="right">
-                        <div>
-                            <p>
-                            <b>Products</b>
-                            </p>
-                        </div>
-                    </a></li>
-                </ul>
+                <center>
+                    <div class="row"><a data-role="button" href="#employeeList">Employee List</a></div>
+                    <div class="row"><a data-role="button" href="#product">Product</a></div>
+                </center>
+            </div>
+        </div>
+        <div data-role="page" id="employeeList">
+            <div data-role="header" id="header" data-theme="b">
+                <a data-role="button" href="#home">back</a>
+                <h1><b>Employee List</b></h1>
+            </div>
+            <div data-role="content">
+                <center>
+                    <div class="row">
+                        <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#john"><h3>John</h3></a>
+                    </div>
+                    <div class="row">
+                        <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#amy"><h3>Amy</h3></a>
+                    </div>
+                    <div class="row">
+                        <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#peter"><h3>Peter</h3></a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div data-role="page" id="product">
+            <div data-role="header" id="header" data-theme="b">
+                <a data-role="button" href="#home">back</a>
+                <h1><b>Product</b></h1>
+            </div>
+            <div data-role="content">
+                <div class="row">
+                    <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#chair"><h3>Chairs</h3></a>
+                </div>
+                <div class="row">
+                    <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#table"><h3>Tables</h3></a>
+                </div>
+                <div class="row">
+                    <a data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide" href="#bookshelf"><h3>Bookshelf</h3></a>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="john">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#employeeList">Back</a>
+                <h1><b>JOHN</b></h1>
+            </div>
+            <div data-role="header">
+                <div class="row">
+                    <table id="employee_table">
+                        <tr>
+                            <td><img src="img/john.png"></td>
+                            <td>
+                                <h1><b>John</b></h1>
+                                <br>
+                                <h2 id="level">Manager</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div data-role="controlgroup">
+                                        <a data-role="button"><h2>EMAIL</h2><br><h3>john6894@gmail.com</h3></a>
+                                        <a data-role="button"><h2>PHONE</h2><br><h3>012-767 6894</h3></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="amy">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#employeeList">Back</a>
+                <h1><b>AMY</b></h1>
+            </div>
+            <div data-role="header">
+                <div class="row">
+                    <table id="employee_table">
+                        <tr>
+                            <td><img src="img/amy.png"></td>
+                            <td>
+                                <h1><b>Amy</b></h1>
+                                <br>
+                                <h2 id="level">Staff</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div data-role="controlgroup">
+                                        <a data-role="button"><h2>EMAIL</h2><br><h3>amy8673@gmail.com</h3></a>
+                                        <a data-role="button"><h2>PHONE</h2><br><h3>019-909 8673</h3></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="peter">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#employeeList">Back</a>
+                <h1><b>PETER</b></h1>
+            </div>
+            <div data-role="header">
+                <div class="row">
+                    <table id="employee_table">
+                        <tr>
+                            <td><img src="img/peter.png"></td>
+                            <td>
+                                <h1><b>Peter</b></h1>
+                                <br>
+                                <h2 id="level">Staff</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div data-role="controlgroup">
+                                        <a data-role="button"><h2>EMAIL</h2><br><h3>peter7658@gmail.com</h3></a>
+                                        <a data-role="button"><h2>PHONE</h2><br><h3>016-425 7658</h3></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="chair">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#product">Back</a>
+                <h1><b>Chair</b></h1>
+            </div>
+            <div data-role="content">
+                <center>
+                    <div class="row">
+                        <div class="col"><img src="img/chair.png" class="acessory"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p><b>MODEL : CSD890</b></p></div>
+                        <div class="col"><p><b>PRICE : RM299</b></p></div>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div data-role="page" id="table">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#product">Back</a>
+                <h1><b>Table</b></h1>
+            </div>
+            <div data-role="content">
+                <center>
+                    <div class="row">
+                        <div class="col"><img src="img/table.png" class="acessory"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p><b>MODEL : TC987</b></p></div>
+                        <div class="col"><p><b>PRICE : RM399</b></p></div>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div data-role="page" id="bookshelf">
+            <div data-role="header" data-theme="b">
+                <a data-role="button" data-icon="arrow-l" data-iconpos="left" href="#product">Back</a>
+                <h1><b>Bookshelf</b></h1>
+            </div>
+            <div data-role="content">
+                <center>
+                    <div class="row">
+                        <div class="col"><img src="img/bookshelf.png" class="bookshelf"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p><b>MODEL : AX367</b></p></div>
+                        <div class="col"><p><b>PRICE : RM299</b></p></div>
+                    </div>
+                </center>
             </div>
         </div>
         <script src="cordova.js"></script>
